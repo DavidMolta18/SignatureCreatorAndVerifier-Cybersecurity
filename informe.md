@@ -14,25 +14,25 @@ El objetivo de este proyecto fue desarrollar un programa en Java que implemente 
 
 ## Desarrollo del Programa
 
-Generación de Claves
+### Generación de Claves
 
-*KeyPairGenerator de Java: La clase KeyPairGenerator de Java se utiliza para generar un par de claves pública y privada usando el algoritmo RSA. Este proceso implica la creación de una instancia de KeyPairGenerator, la inicialización con un tamaño de clave (en este caso, 2048 bits), y la llamada al método generateKeyPair() para obtener el par de claves.
+#### KeyPairGenerator de Java: La clase KeyPairGenerator de Java se utiliza para generar un par de claves pública y privada usando el algoritmo RSA. Este proceso implica la creación de una instancia de KeyPairGenerator, la inicialización con un tamaño de clave (en este caso, 2048 bits), y la llamada al método generateKeyPair() para obtener el par de claves.
 
-*Almacenamiento de Claves: Una vez generado el par de claves, se almacenan en archivos para su uso posterior. La clave privada se cifra para protegerla, usando una contraseña proporcionada por el usuario. Luego, se guarda en un archivo en formato .dat. Por otro lado, la clave pública se guarda en formatos .der y .pem para asegurar su compatibilidad con diferentes sistemas y aplicaciones.
+#### Almacenamiento de Claves: Una vez generado el par de claves, se almacenan en archivos para su uso posterior. La clave privada se cifra para protegerla, usando una contraseña proporcionada por el usuario. Luego, se guarda en un archivo en formato .dat. Por otro lado, la clave pública se guarda en formatos .der y .pem para asegurar su compatibilidad con diferentes sistemas y aplicaciones.
 
-Firma de Archivos
+### Firma de Archivos
 
-*Generación de Hash SHA-256: Antes de firmar un archivo, se calcula un hash del contenido del mismo utilizando el algoritmo SHA-256. Este hash es una representación única y fija del archivo original, que sirve como una especie de "huella digital" que identifica el archivo de manera única.
+#### Generación de Hash SHA-256: Antes de firmar un archivo, se calcula un hash del contenido del mismo utilizando el algoritmo SHA-256. Este hash es una representación única y fija del archivo original, que sirve como una especie de "huella digital" que identifica el archivo de manera única.
 
-*Firma con Clave Privada: Una vez obtenido el hash SHA-256, se procede a firmarlo utilizando la clave privada del usuario. La firma se realiza mediante la clase Signature de Java, utilizando el algoritmo "SHA256withRSA". Este proceso garantiza que la firma sea única para ese archivo y esa clave privada, y es imposible de falsificar sin acceso a la clave privada correspondiente.
+#### Firma con Clave Privada: Una vez obtenido el hash SHA-256, se procede a firmarlo utilizando la clave privada del usuario. La firma se realiza mediante la clase Signature de Java, utilizando el algoritmo "SHA256withRSA". Este proceso garantiza que la firma sea única para ese archivo y esa clave privada, y es imposible de falsificar sin acceso a la clave privada correspondiente.
 
-*Almacenamiento de Firma: El resultado de la firma se guarda en un archivo binario separado. Este archivo contiene la firma digital, que es esencialmente una representación codificada de la firma realizada con la clave privada.
+#### Almacenamiento de Firma: El resultado de la firma se guarda en un archivo binario separado. Este archivo contiene la firma digital, que es esencialmente una representación codificada de la firma realizada con la clave privada.
 
-Verificación de Firmas
+### Verificación de Firmas
 
-*Generación de Hash del Archivo Original: Para verificar la firma de un archivo, primero se calcula el hash SHA-256 del archivo original (sin firma). Esto produce un hash que debería coincidir con el hash generado durante la firma, si la firma es válida.
+#### Generación de Hash del Archivo Original: Para verificar la firma de un archivo, primero se calcula el hash SHA-256 del archivo original (sin firma). Esto produce un hash que debería coincidir con el hash generado durante la firma, si la firma es válida.
 
-*Verificación de Firma con Clave Pública: La verificación de la firma se realiza utilizando la clave pública del usuario. Se utiliza la misma clase Signature y el mismo algoritmo "SHA256withRSA", pero en modo de verificación. Si el hash generado durante la verificación coincide con el hash firmado originalmente, se valida la firma y se confirma la autenticidad del archivo.
+#### Verificación de Firma con Clave Pública: La verificación de la firma se realiza utilizando la clave pública del usuario. Se utiliza la misma clase Signature y el mismo algoritmo "SHA256withRSA", pero en modo de verificación. Si el hash generado durante la verificación coincide con el hash firmado originalmente, se valida la firma y se confirma la autenticidad del archivo.
 
 ## Dificultades Encontradas
 
@@ -51,7 +51,3 @@ Verificación de Firmas
 ## Conclusiones
 
 El desarrollo de este programa permitió explorar y aplicar conceptos avanzados de criptografía en Java. A pesar de los desafíos técnicos, se logró implementar un sistema funcional y seguro para la generación y manejo de claves RSA, así como para la firma y verificación de archivos. Este proyecto sirve como una base sólida para futuras mejoras y aplicaciones más avanzadas en el campo de la seguridad informática.
-
----
-
-Esperamos que este informe proporcione una visión clara del proceso y los logros del proyecto, así como de los obstáculos superados durante su desarrollo.

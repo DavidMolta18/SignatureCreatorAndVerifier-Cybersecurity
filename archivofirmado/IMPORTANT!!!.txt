@@ -1,0 +1,5 @@
+No eliminar esta carpeta para asegurar el correcto funcionamiento del programa
+
+----------------------------
+
+Please don't delete this folder to ensure the proper functioning of the program
